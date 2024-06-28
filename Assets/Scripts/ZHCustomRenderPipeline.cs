@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Rendering;
 using UnityEngine.Experimental.Rendering;
+using System.ComponentModel.Design.Serialization;
 
 public class ZHCustomRenderPipeline : RenderPipeline
 {
@@ -63,7 +64,7 @@ public class ZHCustomRenderPipeline : RenderPipeline
             //渲染天空盒
             if (camera.clearFlags == CameraClearFlags.Skybox)
             {
-                context.DrawSkybox(camera);
+                //context.DrawSkybox(camera);
             }
 
             //渲染透明物体
@@ -109,7 +110,7 @@ public class ZHCustomRenderPipeline : RenderPipeline
     }
 
     Matrix4x4 shadowMatrix;
-    private readonly static string c_strShadowTex = "_ShadowTex";
+    private readonly static string c_strShadowTex = "_ShadowMapTexture";
     private readonly static string c_strShadowMatric = "_ShadowMatric";
     int SetupShadow(ScriptableRenderContext context, Camera camera, CullingResults results)
     {
